@@ -2,12 +2,20 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  // 网站基本信息
   // base: '/vitepress-demo/',
-  logo: '/logo.svg',
   title: "Hishallyi",
   description: "A Learning Site",
-  head: [['link', { rel: 'icon', href: '/favicon.ico' }]],
+  lang: 'zh-CN',
+
+  // 网站图标设置
+  head: [
+    ['link', { rel: 'icon', href: '/favicon.png' }]
+  ],
+
+  // 主题设置
   themeConfig: {
+    logo: '/logo.jpg',
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: '首页', link: '/' },
@@ -15,22 +23,15 @@ export default defineConfig({
       { text: '生活', link: '/生活/suibi' },
     ],
 
-    // sidebar: [
-    //   {
-    //     text: 'Examples',
-    //     items: [
-    //       { text: 'Markdown Examples', link: '/markdown-examples' },
-    //       { text: 'Runtime API Examples', link: '/api-examples' }
-    //     ]
-    //   }
-    // ],
+    // 侧边栏设置
     sidebar: false, // 关闭侧边栏
     outlineTitle: '文章目录',
     outline: [2, 6],
     aside: "left", // 设置右侧侧边栏在左侧显示
 
+    // 社交链接设置
     socialLinks: [
       { icon: 'github', link: 'https://github.com/hishallyi' }
     ]
-  }
+  }, 
 })

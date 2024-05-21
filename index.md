@@ -12,18 +12,18 @@ hero:
       text: 关于我
       link: /about
     - theme: alt
-      text: API Examples
+      text: API
       link: /api-examples
   image:
     src: ./background.svg
     alt: 背景图
 
 features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - title: Development
+    details: 开发是谋生手段
+  - title: Music
+    details: 音乐是心脏的起搏器
+  - title: Wine
+    details: 酒是粮食精，越喝越年轻
 ---
 
