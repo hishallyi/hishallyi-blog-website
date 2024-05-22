@@ -11,9 +11,9 @@ hero:
     - theme: brand
       text: 关于我
       link: /about
-    - theme: alt
-      text: API
-      link: /api-examples
+    # - theme: alt
+    #   text: API
+    #   link: /api-examples
   image:
     src: ./background.svg
     alt: 背景图

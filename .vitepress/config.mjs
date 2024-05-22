@@ -20,18 +20,22 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: '首页', link: '/' },
-      { text: '技术', link: '/技术/index' },
-      { text: '生活', link: '/生活/index' },
+      { text: '后端', link: '/后端/index' },
+      { text: '前端', link: '/前端/index' },
+      { text: '算法', link: '/算法/index' },
+      { text: '思考', link: '/思考/index' },
     ],
 
     // 侧边栏设置
     sidebar: {
-      "/技术/": set_sidebar("技术"),
-      "/生活/": set_sidebar("生活"),
+      "/后端/": set_sidebar("后端"),
+      "/前端/": set_sidebar("前端"),
+      "/算法/": set_sidebar("算法"),
+      "/思考/": set_sidebar("思考"),
     },
+
     outlineTitle: '文章目录',
     outline: [2, 6],
-    // aside: "left", // 设置右侧侧边栏在左侧显示
 
     // 设置搜索框的样式
     search: {
