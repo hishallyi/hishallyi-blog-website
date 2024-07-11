@@ -20,8 +20,8 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: '首页', link: '/' },
-      { text: '后端', link: '/后端/index' },
       { text: '前端', link: '/前端/index' },
+      { text: '后端', link: '/后端/index' },
       { text: '算法', link: '/算法/index' },
       { text: '思考', link: '/思考/index' },
     ],
