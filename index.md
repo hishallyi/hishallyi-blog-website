@@ -6,7 +6,7 @@ layout: home
 hero:
   name: "Hishallyi的知识库"
   text: "Knowledge Base"
-  tagline: 菜就多练
+  tagline: 不爱吃烧烤 不喜欢摇滚
   actions:
     - theme: brand
       text: 关于我
@@ -19,11 +19,11 @@ hero:
     alt: 背景图
 
 features:
-  - title: Development
-    details: 开发是谋生手段
-  - title: Music
-    details: 音乐是心脏的起搏器
-  - title: Wine
-    details: 酒是粮食精，越喝越年轻
+  - title: Backend
+    details: 面向对象开发 我对象呢
+  - title: FrontEnd
+    details: 净整些花里胡哨的
+  - title: Computer Vision
+    details: 听说你还在搞什么原创 搞来搞去好像也就那样
 ---
 
