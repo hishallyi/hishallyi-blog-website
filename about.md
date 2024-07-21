@@ -1,4 +1,4 @@
-呦，这里是CHK Hishallyi（海小逸）！
+Yoo！这里是CHK Hishallyi（海小逸）！
 
 单身届的扛把子，网抑云10级用户、音乐合伙人，资深单日短线驴友，不知名搬砖程序员。
 
@@ -6,7 +6,13 @@
 
 感谢您的参观~~
 
-<img src="./assets/brilliant-come-on-stage.jpg" alt="brilliant-come-on-stage" style="zoom:50%;" />
+<img src="./assets/brilliant-come-on-stage.jpg" alt="brilliant-come-on-stage" style="
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            zoom:50%;" />
+
+<p></p>
 
 <div style="text-align: center;">不喜欢吃烧烤的程序员不是一个名合格的摇滚男孩！</div>
 
@@ -36,6 +42,8 @@
 ------
 
 <div style="text-align: center;">曹操扫世称枭雄，海神武曌映苍穹，土石飞崩猴王显，申时整装木兰缨。</div>
+
+<p></p>
 
 <div style="text-align: right;">——谢谢我的高中同桌，给我写了这首能让我小装一下的诗</div>
 
