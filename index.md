@@ -21,7 +21,7 @@ hero:
 features:
   - title: Backend
     details: 面向对象开发 我对象呢
-  - title: FrontEnd
+  - title: Frontend
     details: 净整些花里胡哨的
   - title: Computer Vision
     details: 听说你还在搞什么原创 搞来搞去好像也就那样
