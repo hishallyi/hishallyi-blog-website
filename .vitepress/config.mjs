@@ -24,6 +24,7 @@ export default defineConfig({
       { text: '后端', link: '/后端/index' },
       { text: '算法', link: '/算法/index' },
       { text: '随记', link: '/随记/index' },
+      { text: '其他', link: '/其他/index' },
     ],
 
     // 侧边栏设置
@@ -32,6 +33,7 @@ export default defineConfig({
       "/前端/": set_sidebar("前端"),
       "/算法/": set_sidebar("算法"),
       "/随记/": set_sidebar("随记"),
+      "/其他/": set_sidebar("其他"),
     },
 
     outlineTitle: '文章目录',
