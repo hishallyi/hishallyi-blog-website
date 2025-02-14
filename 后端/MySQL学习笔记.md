@@ -9,80 +9,9 @@ categories: 技术分享
 
 <!-- more -->
 
-# 数据库基础
+## MySQL安装配置
 
-## 一、数据库查询
-
-关系也就是表，可以把对关系的运算看作对于一张数据库表的查询操作，对于关系的运算也即对表中某些行列的操作
-
-传统的集合运算符：并（union）、差（except）、交、笛卡尔积
-
-专门的关系运算符：选择、投影、连接、除法
-
-### （一）选择
-
-选择数据库表中符合条件的`行`，即选择满足条件的元组，一般用$\sigma$表示
-
-### （二）投影
-
-选择关系中`列`的子集，即选择原表中的某几列属性，返回的是一个新的表，一般用$\pi$表示
-
-> 注意：投影结果中不应该包含重复行
-
-### （三）连接
-
-连接用于连接多个表，使用 JOIN 关键字，并且条件语句使用 ON 而不是 WHERE。
-
-连接可以替换子查询，并且比子查询的效率一般会更快。
-
-可以用 AS 给列名、计算字段和表名取别名，给表名取别名是为了简化 SQL 语句以及连接相同表
-
-#### 1. 内连接
-
-- 等值连接
-- 非等值连接
-
-#### 2. 外连接
-
-- 左外连接
-
-- 右外连接
-- 全连接：左右两边舍弃的元组都保留
-
-#### 3. 交叉连接（笛卡尔积）
-
-
-
-### （四）除法
-
-
-
-## 二、分组
-
-关键字：GROUP BY
-
-将具有相同数据值的行放在同一组中
-
-用HAVING过滤分组，用ORDER BY可以按照汇总字段进行排序
-
-
-
-**分组规定：**
-
-- GROUP BY 子句出现在 WHERE 子句之后，ORDER BY 子句之前；
-- **除了汇总字段外，SELECT 语句中的每一字段都必须在 GROUP BY 子句中给出；**
-- NULL 的行会单独分为一组；
-- 大多数 SQL 实现不支持 GROUP BY 列具有可变长度的数据类型。
-
-
-
-
-
-
-
-# MySQL安装配置
-
-## Windows安装
+### Windows安装
 
 安装好MySQL数据库之后，进行my.ini初始化文件的配置，创建环境变量，以管理员身份打开命令提示符cmd，进入mysql安装路径的bin目录下
 
@@ -134,21 +63,31 @@ ALTER USER 'root'@'localhost' IDENTIFIED BY 'chk123';
 
 6. 在MySQL安装目录下的my.ini文件中配置MySQL端口号，默认端口号是3306
 
-## Linux安装
+### Linux安装
 
 参考链接：http://t.csdnimg.cn/PWyoG
 
 
 
+## MySQL命令总结
 
+### 常用命令总结
 
+> Windows系统下命令：
 
+- sc query mysql：查看MySQL服务是否启动
+- net start/stop mysql：启动/关闭MySQL服务
+- mysql -h [主机ip] -u [用户名] -p：远程登录MySQL
+- mysql -u [用户名] -p：本地登录MySQL
 
-# MySQL命令总结
+> Linux系统下命令：
 
-## 启动及关闭 MySQL 服务器
+- systemctl status mysql：查看MySQL服务状态
+- 
 
-### Windows 系统下
+### 启动及关闭 MySQL 服务器
+
+#### Windows 系统下
 
 **启动 MySQL 服务器:**
 
@@ -170,7 +109,7 @@ net start mysql
 net stop mysql
 ```
 
-### Linux 系统下
+#### Linux 系统下
 
 **1、启动 MySQL 服务：**
 
@@ -228,7 +167,7 @@ sudo systemctl status mysql
 sudo service mysql status
 ```
 
-### Mac OS 系统
+#### Mac OS 系统
 
 启动 MySQL 服务：
 
@@ -266,7 +205,7 @@ sudo /usr/local/mysql/support-files/mysql.server status
 
 在 Mac OS 中，MySQL 的安装路径通常是 /usr/local/mysql/，因此启动和关闭 MySQL 服务需要使用这个路径下的 mysql.server 脚本。
 
-## 管理MySQL的命令
+### 管理MySQL的命令
 
 **登录命令**
 
