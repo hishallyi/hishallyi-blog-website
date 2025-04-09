@@ -1,4 +1,27 @@
+### 记忆技巧
+
+数组元素的操作函数：add、get、remove、clear（清空全部元素）
+
+集合元素的操作函数：add、remove、clear，没有get
+
+双向链表（LinkedList，其实也是属于List）元素操作函数：add、get、remove、poll，由于是双向的，其中add和remove函数名后面可以跟First、Last来指定插入和删除的位置
+
+
+
+哈希元素的操作函数：put、get、remove、containsKey、clear
+
+
+
+栈和队列的查看元素的函数中都包含peek
+
+栈对栈顶的元素的操作函数：push、pop、peek（仅查看不删除）
+
+队列对双端元素的操作函数：添加是offer、移除是poll、查看是peek，后面跟的First、Last表示对队首和队尾的操作
+
+
+
 ### ArrayList
+
 `ArrayList` 是一个动态数组，允许元素重复，有序存储。
 
 - **添加元素**：
@@ -53,28 +76,6 @@
   - `void clear()`：移除集合中的所有元素。
   - `boolean contains(Object o)`：判断集合中是否包含指定元素。
 
-### HashMap
-`HashMap` 是一个键值对集合，允许 `null` 键和 `null` 值，无序存储。
-
-- **添加元素**：
-  - `V put(K key, V value)`：将指定的键值对添加到映射中。如果映射中已存在该键，则替换其对应的值。
-
-- **获取元素**：
-  - `V get(Object key)`：返回指定键所映射的值；如果此映射不包含该键的映射关系，则返回 `null`。
-
-- **删除元素**：
-  - `V remove(Object key)`：如果存在指定键的映射关系，则将其从映射中移除，并返回该键所映射的值。
-
-- **其他**：
-  - `int size()`：返回映射中的键值对数量。
-  - `boolean isEmpty()`：判断映射是否为空。
-  - `void clear()`：移除映射中的所有键值对。
-  - `boolean containsKey(Object key)`：判断映射中是否包含指定键的映射关系。
-  - `boolean containsValue(Object value)`：判断映射中是否存在一个或多个键映射到指定的值。
-  - `Set<K> keySet()`：返回映射中包含的键的 `Set` 视图。
-  - `Collection<V> values()`：返回映射中包含的值的 `Collection` 视图。
-  - `Set<Map.Entry<K, V>> entrySet()`：返回映射中包含的键值对的 `Set` 视图。
-
 ### LinkedList
 
 `LinkedList` 是一个双向链表实现的列表，它实现了 `List` 和 `Deque` 接口，既可以作为列表使用，也可以作为队列或栈使用。
@@ -124,6 +125,29 @@ public class LinkedListExample {
   - `remove(int index)`：移除指定索引处的元素。
   - `poll()`
 
+### HashMap
+
+`HashMap` 是一个键值对集合，允许 `null` 键和 `null` 值，无序存储。
+
+- **添加元素**：
+  - `V put(K key, V value)`：将指定的键值对添加到映射中。如果映射中已存在该键，则替换其对应的值。
+
+- **获取元素**：
+  - `V get(Object key)`：返回指定键所映射的值；如果此映射不包含该键的映射关系，则返回 `null`。
+
+- **删除元素**：
+  - `V remove(Object key)`：如果存在指定键的映射关系，则将其从映射中移除，并返回该键所映射的值。
+
+- **其他**：
+  - `int size()`：返回映射中的键值对数量。
+  - `boolean isEmpty()`：判断映射是否为空。
+  - `void clear()`：移除映射中的所有键值对。
+  - `boolean containsKey(Object key)`：判断映射中是否包含指定键的映射关系。
+  - `boolean containsValue(Object value)`：判断映射中是否存在一个或多个键映射到指定的值。
+  - `Set<K> keySet()`：返回映射中包含的键的 `Set` 视图。
+  - `Collection<V> values()`：返回映射中包含的值的 `Collection` 视图。
+  - `Set<Map.Entry<K, V>> entrySet()`：返回映射中包含的键值对的 `Set` 视图。
+
 ### Stack
 
 `Stack` 是一个后进先出（LIFO）的栈，它继承自 `Vector` 类。
@@ -167,7 +191,7 @@ public class StackExample {
 
 ### Deque
 
-`Deque` 是一个双端队列接口，它支持在队列的两端插入和删除元素。`LinkedList` 和 `ArrayDeque` 都实现了 `Deque` 接口。
+`Deque` 是一个双端队列**接口**，它支持在队列的两端插入和删除元素。`LinkedList` 和 `ArrayDeque` 都实现了 `Deque` 接口。
 
 ```java
 import java.util.Deque;
