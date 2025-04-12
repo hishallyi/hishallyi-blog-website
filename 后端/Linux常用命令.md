@@ -4,6 +4,8 @@
 
 ## 常用但不好记的命令
 
+- Ubuntu中安装工具库多用`apt`，CentOS中安装工具多用`yum`
+
 - `gpustat`：查看显卡状态
 
 - `free -h`：查看当前服务器的内存使用情况
@@ -14,11 +16,15 @@
 
 - `whoami`、`id -un`：显示当前用户名
 
+- `du -h --max-depth=1 | sort -hr`：统计当前目录下所有子文件夹的大小并从大到小排序（只统计当前目录下的一级子目录）
+
 - `su`：切换到超级用户（ Linux超级用户名一般为`root`，超级用户才有执行`sudo`命令的权限）
 
 - `passwd`：修改当前用户的密码
 
-- `ping www.baidu.com`：查看服务器是否联网；`ifconfig`：显示网络接口信息；`ip addr show`：显示 IP 地址信息
+- 查看服务器是否联网：`ping www.baidu.com`；`curl -I https://www.baidu.com`（`-I`表示只获取响应头而不下载响应体，也就是页面内容）
+
+- `ifconfig`：显示网络接口信息；`ip addr show`：显示 IP 地址信息
 
 - 在基于 Debian/Ubuntu 的系统中（例如 Ubuntu、Debian）使用 `apt` 包管理器，查看是否可用：`apt --version`
 
@@ -141,7 +147,7 @@
 
 5. 在 Linux 服务器上查看用户列表的常用命令如下：
 
-   ### 1. 查看所有用户
+   1. 查看所有用户
 
    - **`cat /etc/passwd`**：该命令显示系统上所有用户的信息，每个用户一行。`/etc/passwd` 文件包含用户的用户名、用户 ID（UID）、用户组 ID（GID）、用户的全名或描述、主目录路径和默认 shell。
 
@@ -155,34 +161,49 @@
      username:x:UID:GID:User Info:Home Directory:Shell
      ```
 
-   ### 2. 显示系统用户与普通用户
+   2. 显示系统用户与普通用户
+   
    - **`awk -F':' '{ print $1}' /etc/passwd`**：这个命令仅列出用户名，去掉了其他信息。
-
+   
      ```bash
      awk -F':' '{ print $1}' /etc/passwd
      ```
+   
+   3. 查看当前在线用户
 
-   ### 3. 查看当前在线用户
    - **`who`**：列出当前登录到系统的用户。
-
+   
      ```bash
      who
      ```
 
    - **`w`**：显示当前登录用户以及他们正在执行的任务。
-
+   
      ```bash
      w
      ```
-
-   ### 4. 显示当前登录的所有用户
+   
+   4. 显示当前登录的所有用户
+   
    - **`users`**：列出当前登录到系统的所有用户，用户名以空格分隔。
-
+   
      ```bash
      users
      ```
-
+   
    这些命令可以帮助你查看系统中的用户列表及其相关信息。
+
+6. 删除用户
+
+   ```bash
+   // 删除用户但保存根目录
+   sudo userdel <username>
+   
+   // 删除用户及其根目录
+   sudo userdel -r <username>
+   ```
+
+   
 
 
 ## 系统管理

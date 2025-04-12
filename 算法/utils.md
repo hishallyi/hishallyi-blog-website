@@ -28,6 +28,13 @@
 
 **screen 常用命令**
 
+如果Linux中没有screen工具，安装命令：
+
+```bash
+apt install screen // Ubuntu系统
+yum install screen // CentOS系统
+```
+
 创建窗口的命令：`screen -S 窗口名称`
 
 查看窗口的命令：`screen -ls`
@@ -42,6 +49,37 @@
 永久删除窗口的命令：`screen -S 窗口名称 -X quit`
 
 **visdom 使用**
+
+1. 在创建的窗口中启动visdom服务器：
+
+```bash
+python -m visdom.server -port [自己指定的端口，默认是8097]
+```
+
+2. 如果使用的是远程服务器，并且希望从浏览器访问 Visdom 服务，确保防火墙允许访问您设置的端口（默认为 8097）。可以根据使用的防火墙工具执行以下操作。
+
+- 对于 `ufw` 防火墙：
+
+```
+sudo ufw allow 8097
+```
+
+- 对于 `firewalld` 防火墙：
+
+```
+sudo firewall-cmd --zone=public --add-port=8097/tcp --permanent
+sudo firewall-cmd --reload
+```
+
+3. 访问visdom
+
+在启动了 Visdom 服务之后，就可以在浏览器中访问它。假设设置的端口是默认的 8097，可以在浏览器中输入以下地址来访问 Visdom：
+
+```python
+http://<server_ip>:8097
+```
+
+4. 代码中如何使用visdom:
 
 ```python
 import visdom
@@ -167,6 +205,13 @@ def _convert_output_type_range(img, dst_type):
         img /= 255.
     return img.astype(dst_type)
 ```
+
+
+
+## PSNR
+
+1. `from skimage.metrics import peak_signal_noise_ratio`只能计算 numpy 数组，传入 tensor 张量是不能计算的，并且传入的两幅图只要维度对应就行，不要求图片的维度顺序一定是`h w c`，图片维度是`c h w`也可以计算，不影响结果
+2. 转换为 255 的存图时来计算，别直接用小数来计算
 
 
 
@@ -388,6 +433,8 @@ def seed_torch(seed=1029):
 - **3 1 1 和 1 1 0（kernel_size, stride, padding）表示不改变输出尺寸**，在空间上进行卷积
 - **3 1 2 2（kernel_size, stride, padding, dilation）也不改变输出尺寸**
 
+Unet模型就是2D卷积组成的
+
 ### nn.Conv3d
 
 > nn.Conv3d(in_channels, out_channels, kernel_size, stride=1, padding=0, dilation=1, groups=1, bias=True, padding_mode='zeros')
@@ -408,3 +455,31 @@ def seed_torch(seed=1029):
 - **3 1 1 和 1 1 0（kernel_size, stride, padding）都不改变输出尺寸，在深度维 d 和空间维 h w 上进行卷积**
 - **3 1 2 2（kernel_size, stride, padding, dilation）也不改变输出尺寸**
 
+### 数据类型转换
+
+numpy 转 tensor：`tensor =  torch.from_numpy(numpy_array) ` 
+
+tensor 转 numpy：`numpy_array = tensor.numpy()`
+
+！！！注意：numpy 转 tensor 时，`torch.from_numpy()` 返回的张量与原始 NumPy 数组共享内存，修改一个会影响另一个 ，因此一般在自定义数据集类的最后返回数据的复制，采用如下操作：
+
+```
+train_image = trian_image.copy()
+```
+
+### 变换维度顺序
+
+1. numpy 数组改变维度顺序用`array.transpose(1, 2, 0)`
+2. tensor 张量改变维度顺序用`tensor.permute(1, 2, 0)`
+3. 函数 `einops.rearrange(numpy / tensor,  'c h w -> h w c')`可以改变 numpy 数组或者 tensor 的维度顺序
+
+### 扩充维度顺序
+
+1. `tensor.unsqueeze(维度扩充的位置)`
+2. `tensor.repeat(1, 5, 1, 1)`：针对第二个维度复制 5 次
+3. `tensor.expand_as(已有的 tensor 变量 tensor1)`：把 tensor 的维度扩充至和 tensor1 相同的维度
+
+### GPU与CPU设备切换
+
+1. **GPU 和 CPU 之间的切换：**在训练或者测试时，每次迭代器加载出数据都要先用`.to(device).float()`转移到 GPU 后再输入模型，但是在计算指标时记得用`.cpu().numpy()`转为 numpy 数组到 CPU 上计算，因为有些指标函数仅支持 numpy 数组的计算（比如 PSNR）
+2. **运行代码：**训练和测试的代码先在 PyCharm 中 **debug**，然后才在**终端 / OpenPAI 上跑**，简单的代码才直接在 PyCharm 里**运行**
