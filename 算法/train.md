@@ -148,7 +148,8 @@ if args.model_save_dir:
 ```python
 # logging
 start_time = time.strftime("%m%d%H%M", time.localtime(time.time()))
-log_path = f"./log/{args.model_name}_{args.model_msg}_{start_time}"
+log_name = f"{args.model_name}_{args.model_msg}_{start_time}"
+log_path = os.path.join(Path(__file__).resolve().parent.parent, "log", log_name)
 os.makedirs(f"{log_path}", exist_ok=True)
 
 logging.basicConfig(
