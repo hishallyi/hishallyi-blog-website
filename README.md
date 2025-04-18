@@ -1,6 +1,6 @@
-# Hishallyi的博客网站
+# Hishallyi的简易博客网站
 
-逐渐完善中...
+基于 [vitepress](https://github.com/vuejs/vitepress.git) 项目制作
 
 
 
